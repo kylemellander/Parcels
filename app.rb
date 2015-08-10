@@ -9,7 +9,20 @@ get ('/') do
 end
 
 get ('/parcel') do
-  parcel = Parcel.new(params.fetch('length'), params.fetch('width'), params.fetch('height'), params.fetch('weight'))
-  @cost = parcel.cost_to_ship(params.fetch('method'), params.fetch('distance'))
-  erb(:parcel)
+  error=0
+  params.each do |key, value|
+    if value==""
+      error=1
+    end
+  end
+  if params.empty?
+    error=2
+  end
+  if error>=1
+    erb(:index)
+  else
+    parcel = Parcel.new(params.fetch('length'), params.fetch('width'), params.fetch('height'), params.fetch('weight'))
+    @cost = parcel.cost_to_ship(params.fetch('method'), params.fetch('distance'))
+    erb(:parcel)
+  end
 end
