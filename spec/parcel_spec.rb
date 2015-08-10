@@ -25,6 +25,5 @@ describe(Parcel) {
       expect(parcel.cost_to_ship('Chicken', 100)).to(eq('$6.96'))
     }
 
-
   }
 }
