@@ -26,4 +26,11 @@ describe(Parcel) {
     }
 
   }
+
+  describe('#surface_area') {
+    it('returns the surface area of the parcel for gift wrapping purposes') {
+      parcel = Parcel.new(2,3,4,6)
+      expect(parcel.surface_area()).to(eq(52))
+    }
+  }
 }
