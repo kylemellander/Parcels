@@ -25,6 +25,10 @@ describe(Parcel) {
       expect(parcel.cost_to_ship('Chicken', 100)).to(eq('$6.96'))
     }
 
+    it('returns the cost to ship an item for chicken shipping with gift wrapping') {
+      parcel = Parcel.new(2,3,4,6)
+      expect(parcel.cost_to_ship('Chicken', 100, 1)).to(eq('$9.56'))
+    }
   }
 
   describe('#surface_area') {

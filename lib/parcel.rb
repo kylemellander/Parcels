@@ -16,15 +16,15 @@ class Parcel
 
   def cost_to_ship(delivery_type, distance, gift_wrap=0)
     if delivery_type.==("Cheetah")
-      cost = '%.2f' % ((volume() * 0.02 + @weight * 0.50) * distance.to_f() * 0.05)
+      cost = ((volume() * 0.02 + @weight * 0.50) * distance.to_f() * 0.05)
     elsif delivery_type == "Chihuahua"
-      cost = '%.2f' % ((volume * 0.02 + @weight * 0.50) * distance.to_f() * 0.03)
+      cost = ((volume * 0.02 + @weight * 0.50) * distance.to_f() * 0.03)
     elsif delivery_type == "Chicken"
-      cost = '%.2f' % ((volume * 0.02 + @weight * 0.50) * distance.to_f() * 0.02)
+      cost = ((volume * 0.02 + @weight * 0.50) * distance.to_f() * 0.02)
     end
     if gift_wrap == 1
-      cost =+ (surface_area() * 0.05)
+      cost += (surface_area().to_f * 0.05)
     end
-    cost.to_s.prepend("$")
+    ('%.2f' % cost).to_s.prepend("$")
   end
 end
