@@ -10,10 +10,21 @@ describe(Parcel) {
   }
 
   describe('#cost_to_ship') {
-    it('returns the cost to ship an item for one day shipping') {
+    it('returns the cost to ship an item for cheetah shipping') {
       parcel = Parcel.new(2,3,4,6)
-      expect(parcel.cost_to_ship("1 Day", 100)).to(eq("$17.40"))
+      expect(parcel.cost_to_ship("Cheetah", 100)).to(eq("$17.40"))
     }
-  }
 
+    it('returns the cost to ship an item for chihuahua shipping') {
+      parcel = Parcel.new(2,3,4,6)
+      expect(parcel.cost_to_ship('Chihuahua', 100)).to(eq('$10.44'))
+    }
+
+    it('returns the cost to ship an item for chicken shipping') {
+      parcel = Parcel.new(2,3,4,6)
+      expect(parcel.cost_to_ship('Chicken', 100)).to(eq('$6.96'))
+    }
+
+
+  }
 }
